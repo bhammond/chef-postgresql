@@ -22,5 +22,5 @@ bash "postgresql initdb" do
     -U postgres \
     -D #{node["postgresql"]["data_directory"]}
   EOC
-  not_if "test -f #{node["postgresql"]["data_directory"]}/PG_VERSION"
+  creates "#{node["postgresql"]["data_directory"]}/PG_VERSION"
 end
